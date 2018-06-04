@@ -88,6 +88,16 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="tags">
 
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
 
 
 <script type="text/javascript" id="hexo.configurations">
@@ -143,7 +153,7 @@
 
   <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
-
+      <a href="https://akoasm-ruby.github.io/"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
@@ -296,10 +306,10 @@
         
           <div class="tag-cloud">
             <div class="tag-cloud-title">
-                暂无标签
+                目前共计 3 个标签
             </div>
             <div class="tag-cloud-tags">
-              
+              <a href="/tags/私密/" style="font-size: 12px; color: #ccc">私密</a> <a href="/tags/训练报告/" style="font-size: 12px; color: #ccc">训练报告</a> <a href="/tags/题解/" style="font-size: 12px; color: #ccc">题解</a>
             </div>
           </div>
         
@@ -363,14 +373,32 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">1</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
             
 
           </nav>
@@ -598,3 +626,4 @@
 
 </body>
 </html>
+<script type="text/javascript" src="/js/src/love.js"></script>
