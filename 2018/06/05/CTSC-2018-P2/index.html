@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="题解," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="CTSC 2018 D1T2 难度:NOI+/CTSC">
+<meta name="keywords" content="题解">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CTSC2018P2">
+<meta property="og:url" content="http://yoursite.com/2018/06/05/CTSC-2018-P2/index.html">
+<meta property="og:site_name" content="Akoasm 的博客">
+<meta property="og:description" content="CTSC 2018 D1T2 难度:NOI+/CTSC">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-06-05T10:03:18.399Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CTSC2018P2">
+<meta name="twitter:description" content="CTSC 2018 D1T2 难度:NOI+/CTSC">
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/06/05/CTSC-2018-P2/"/>
+
+
+
+
+
+  <title>CTSC2018P2 | Akoasm 的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+      <a href="https://akoasm-ruby.github.io/"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Akoasm 的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/05/CTSC-2018-P2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Akoasm">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1528115353421&di=fc37fe52f68a7467805419602262e4b3&imgtype=0&src=http%3A%2F%2Fuploads.5068.com%2Fallimg%2F1801%2F102Q435O-8.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Akoasm 的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">CTSC2018P2</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-05T17:42:12+08:00">
+                2018-06-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/博客/" itemprop="url" rel="index">
+                    <span itemprop="name">博客</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  CTSC 2018 D1T2 难度:NOI+/CTSC
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="暴力写挂"><a href="#暴力写挂" class="headerlink" title="暴力写挂"></a>暴力写挂</h2><h2 id="题意：给定两棵带边权的树-T-和-T’-求点对-x-y-使得：-dep-x-dep-y-dep-lca-x-y-dep’-lca’-x-y"><a href="#题意：给定两棵带边权的树-T-和-T’-求点对-x-y-使得：-dep-x-dep-y-dep-lca-x-y-dep’-lca’-x-y" class="headerlink" title=" 题意：给定两棵带边权的树$T 和 T’$,求点对$(x,y)$使得：$dep(x) + dep(y) - dep(lca(x,y)) - dep’(lca’(x,y)) $"></a> 题意：给定两棵带边权的树$T 和 T’$,求点对$(x,y)$使得：$dep(x) + dep(y) - dep(lca(x,y)) - dep’(lca’(x,y)) $</h2><h2 id="数据范围：-n-lt-366666-4s"><a href="#数据范围：-n-lt-366666-4s" class="headerlink" title=" 数据范围： $ n &lt;= 366666 , 4s$"></a> 数据范围： $ n &lt;= 366666 , 4s$</h2><h2 id="前置技能：点分治，边分治，虚树，点分树（动态点分治），线段树，边分树。"><a href="#前置技能：点分治，边分治，虚树，点分树（动态点分治），线段树，边分树。" class="headerlink" title=" 前置技能：点分治，边分治，虚树，点分树（动态点分治），线段树，边分树。"></a> 前置技能：点分治，边分治，虚树，点分树（动态点分治），线段树，边分树。</h2><h2 id="流程："><a href="#流程：" class="headerlink" title=" 流程："></a> 流程：</h2><p>对于$T’$，我们首先枚举一个点对$(x,y)$在它上的LCA，然后问题就成功转化成了:在第一棵树中加入若干个$x$，询问时对于某个$y$，$min(dep(x) + dep(y) - dep(lca(x,y))$的值。</p>
+<p>可以发现本质是树上路径，上点分治，考虑重心连出去的若干个子树中一定有一个是恰好靠近根节点的。</p>
+<p>如果点对$(x,y)$不在那棵子树中，那么$lca(x,y)$就是重心。</p>
+<p>否则的话，设$x$在靠近根节点的子树中，$y$不在，那么$lca(x,y) &lt;=&gt; lca(x,G)$ $(G为重心）$，可以发现只与$x$有关，可以直接预处理并且将信息添加到每个$x$上面。</p>
+<p>所以只要维护不靠近根节点最大值，次大值，以及靠近根节点的最大值，这道题就可做了。</p>
+<p>对于枚举$T’$上的$LCA$，一般可以用启发合并来做，但是启发合并自带一只$log$的复杂度，对于此题统计链的信息，如用点分治，复杂度与点相关，直接GG。</p>
+<p>而且需要支持动态加入。</p>
+<p>对于点分树，在其上难以删除，使用树上启发维护，极致写法也只是$O(nlog^{2}n)$</p>
+<p>所以直接考虑边分治，对于这棵边分树，发现到它的二叉性质，形如线段树，直接边分树上跑线段树合并即可。</p>
+<p>总复杂度$O(nlogn)。$</p>
+<p>  $Code:$<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><span class="line">//随机序列</span><br><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">#define N 366667</span><br><span class="line">#define LL long long</span><br><span class="line">char ch;bool fs;void re(int&amp; x)</span><br><span class="line">&#123;</span><br><span class="line">    while(ch=getchar(),ch&lt;33);</span><br><span class="line">    if(ch==&apos;-&apos;)fs=1,x=0;else fs=0,x=ch-48;</span><br><span class="line">    while(ch=getchar(),ch&gt;33)x=x*10+ch-48;</span><br><span class="line">    if(fs)x=-x;</span><br><span class="line">&#125;</span><br><span class="line">using namespace std;</span><br><span class="line">LL ans=-1ll&lt;&lt;60;</span><br><span class="line">int n,now,s[N];</span><br><span class="line">struct tree</span><br><span class="line">&#123;</span><br><span class="line">    LL far[N];</span><br><span class="line">    int dep[N],dfn[N],mn[20][N+N],e[N+N];</span><br><span class="line">    int cnt,head[N],nxt[N+N],to[N+N],w[N+N];</span><br><span class="line">    void add(int u,int v,int c)</span><br><span class="line">    &#123;</span><br><span class="line">        nxt[++cnt]=head[u];head[u]=cnt;to[cnt]=v;w[cnt]=c;</span><br><span class="line">    &#125;</span><br><span class="line">    void dfs(int u,int fa=0)</span><br><span class="line">    &#123;</span><br><span class="line">        dfn[u]=++cnt;mn[0][cnt]=u;</span><br><span class="line">        for(int i=head[u],v;i;i=nxt[i])</span><br><span class="line">            if((v=to[i]) != fa)</span><br><span class="line">            &#123;</span><br><span class="line">                dep[v]=dep[u]+1;</span><br><span class="line">                far[v]=far[u]+w[i];</span><br><span class="line">                dfs(v,u);</span><br><span class="line">                mn[0][++cnt]=u;</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    int lca(int u,int v)</span><br><span class="line">    &#123;</span><br><span class="line">        u=dfn[u];v=dfn[v];</span><br><span class="line">        if(u&gt;v)swap(u,v);</span><br><span class="line">        int t=e[v-u+1];</span><br><span class="line">        return dep[mn[t][u]]&lt;dep[mn[t][v-(1&lt;&lt;t)+1]]?mn[t][u]:mn[t][v-(1&lt;&lt;t)+1];</span><br><span class="line">    &#125;</span><br><span class="line">    void init()</span><br><span class="line">    &#123;</span><br><span class="line">        for(int i=1,u,v,c;i&lt;n;++i)</span><br><span class="line">        &#123;</span><br><span class="line">            re(u),re(v),re(c);</span><br><span class="line">            add(u,v,c);</span><br><span class="line">            add(v,u,c);</span><br><span class="line">        &#125;</span><br><span class="line">        cnt=0;</span><br><span class="line">        dfs(1);</span><br><span class="line">        for(int i=1;i&lt;=19;++i)</span><br><span class="line">            for(int j=1,k=1&lt;&lt;i-1;j+k&lt;=cnt;++j)</span><br><span class="line">                mn[i][j]=dep[mn[i-1][j]]&lt;dep[mn[i-1][j+k]]?mn[i-1][j]:mn[i-1][j+k];</span><br><span class="line">        for(int i=2;i&lt;=cnt;++i)</span><br><span class="line">            e[i]=e[i&gt;&gt;1]+1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;t[2];</span><br><span class="line">bool cmp(int a,int b)</span><br><span class="line">&#123;</span><br><span class="line">    return t[now].far[a]&lt;t[now].far[b];</span><br><span class="line">&#125;</span><br><span class="line">void tryy(int u)</span><br><span class="line">&#123;</span><br><span class="line">    LL mx=0,num=0,last=0;</span><br><span class="line">    while(1)</span><br><span class="line">    &#123;</span><br><span class="line">        for(int i=1;i&lt;=n;++i)</span><br><span class="line">        &#123;</span><br><span class="line">            LL cur=t[0].far[u]+t[0].far[i]-t[0].far[t[0].lca(u,i)]-t[1].far[t[1].lca(u,i)];</span><br><span class="line">            if(cur&gt;mx)</span><br><span class="line">                mx=cur,num=i;</span><br><span class="line">        &#125;</span><br><span class="line">        if(mx&gt;last)last=mx,u=num;</span><br><span class="line">        else break;</span><br><span class="line">    &#125;</span><br><span class="line">    ans=max(ans,mx);</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    double sta=clock();</span><br><span class="line">    re(n);</span><br><span class="line">    t[0].init();</span><br><span class="line">    t[1].init();</span><br><span class="line">    for(int i=1;i&lt;=n;++i)s[i]=i;</span><br><span class="line">    for(now=0;now&lt;=1;++now)</span><br><span class="line">    &#123;</span><br><span class="line">        sort(s+1,s+n+1,cmp);</span><br><span class="line">        for(int i=1;i&lt;=min(n,30)&amp;&amp;1.0*(clock()-sta)/CLOCKS_PER_SEC&lt;3.9;++i)</span><br><span class="line">            tryy(s[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    srand(time(0));</span><br><span class="line">    random_shuffle(s+1,s+n+1);</span><br><span class="line">    for(int i=1;i&lt;=n &amp;&amp; 1.0*(clock()-sta)/CLOCKS_PER_SEC&lt;3.9;++i)</span><br><span class="line">        tryy(s[i]);</span><br><span class="line">    printf(&quot;%lld\n&quot;,ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br></pre></td><td class="code"><pre><span class="line">//边分树，线段树，虚树。</span><br><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">typedef long long ll;</span><br><span class="line">inline void swap(int&amp;a,int&amp;b)&#123;int t=a;a=b;b=t;&#125;</span><br><span class="line">inline int max(const int&amp;a,const int&amp;b)&#123;return a&gt;b?a:b;&#125;</span><br><span class="line">inline ll max(const ll&amp;a,const ll&amp;b)&#123;return a&gt;b?a:b;&#125;</span><br><span class="line">inline void upa(ll&amp;a,const ll&amp;b)&#123;a&lt;b?a=b:0;&#125;</span><br><span class="line">char ibuf[1&lt;&lt;25],*ih=ibuf;</span><br><span class="line">inline void read(int&amp;x)&#123;</span><br><span class="line">	int f=1;</span><br><span class="line">	for(;!isdigit(*ih);++ih)if(*ih==&apos;-&apos;)f=-1;</span><br><span class="line">	for(x=0;isdigit(*ih);x=x*10+*ih++-48);x*=f;</span><br><span class="line">&#125;</span><br><span class="line">const int N=366675;</span><br><span class="line">const ll inF=1ll&lt;&lt;60;</span><br><span class="line">struct edge&#123;</span><br><span class="line">	int to,next,v;</span><br><span class="line">&#125;e[N*10];</span><br><span class="line">int ecnt=1,h1[N],h2[N],h3[N*2];</span><br><span class="line">inline void addedge(int x,int y,int v,int*h)&#123;</span><br><span class="line">	e[++ecnt]=(edge)&#123;y,h[x],v&#125;;h[x]=ecnt;</span><br><span class="line">	e[++ecnt]=(edge)&#123;x,h[y],v&#125;;h[y]=ecnt;</span><br><span class="line">&#125;</span><br><span class="line">int n,x,y,v,i,j;</span><br><span class="line">struct node&#123;</span><br><span class="line">	int l,r;</span><br><span class="line">	ll mxl,mxr;</span><br><span class="line">&#125;t[N*35];</span><br><span class="line">int xb,f[21][N*2],lo[N*2],id[N];</span><br><span class="line">ll dep1[N],dep2[N];</span><br><span class="line">int depe[N*2];</span><br><span class="line">int a[N],X,bel[N*2];</span><br><span class="line">int cnt;</span><br><span class="line">int build(int l,int r)&#123;</span><br><span class="line">	if(l==r)return a[l];</span><br><span class="line">	int m=(l+r)&gt;&gt;1,ans=++cnt;bel[ans]=X;</span><br><span class="line">	addedge(ans,build(l,m),1,h3);addedge(ans,build(m+1,r),1,h3);</span><br><span class="line">	return ans;</span><br><span class="line">&#125;</span><br><span class="line">void getdep(int x,int fa)&#123;</span><br><span class="line">	f[0][id[x]=++xb]=x;</span><br><span class="line">	for(int i=h1[x];i;i=e[i].next)if(e[i].to!=fa)&#123;</span><br><span class="line">		dep1[e[i].to]=dep1[x]+e[i].v;</span><br><span class="line">		getdep(e[i].to,x);f[0][++xb]=x;</span><br><span class="line">	&#125;</span><br><span class="line">	int xb=0;</span><br><span class="line">	for(int i=h1[x];i;i=e[i].next)if(e[i].to!=fa)a[++xb]=e[i].to;</span><br><span class="line">	if(xb==1)addedge(x,a[1],1,h3);</span><br><span class="line">	if(xb&gt;1)&#123;</span><br><span class="line">		int m=(xb+1)&gt;&gt;1;X=x;</span><br><span class="line">		addedge(x,build(1,m),1,h3);addedge(x,build(m+1,xb),1,h3);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">int cmp(int x,int y)&#123;</span><br><span class="line">	return depe[x]&lt;depe[y]?x:y;</span><br><span class="line">&#125;</span><br><span class="line">inline int lca(int x,int y)&#123;</span><br><span class="line">	x=id[x];y=id[y];if(x&gt;y)swap(x,y);</span><br><span class="line">	int l=lo[y-x+1];</span><br><span class="line">	return cmp(f[l][x],f[l][y-(1&lt;&lt;l)+1]);</span><br><span class="line">&#125;</span><br><span class="line">inline ll calc(int x,int y)&#123;</span><br><span class="line">	return dep1[y]-dep1[lca(x,y)];</span><br><span class="line">&#125;</span><br><span class="line">int root[N],rt,sum,sz[N*2],g[N*2],dad[N*2],de[N*2];</span><br><span class="line">void getce(int x,int fa)&#123;</span><br><span class="line">	sz[x]=1;dad[x]=fa;</span><br><span class="line">	for(int i=h3[x];i;i=e[i].next)if(e[i].to!=fa &amp;&amp; e[i].v)</span><br><span class="line">		de[e[i].to]=i,getce(e[i].to,x),sz[x]+=sz[e[i].to];</span><br><span class="line">	g[x]=max(sz[x],sum-sz[x]);</span><br><span class="line">	if(g[x]&lt;g[rt])rt=x;</span><br><span class="line">&#125;</span><br><span class="line">int st[100],w,st2[100];</span><br><span class="line">inline void gett(int x)&#123;</span><br><span class="line">	for(int i=1,*z=root+x;i&lt;=w;++i)&#123;</span><br><span class="line">		*z=++cnt;</span><br><span class="line">		if(st2[i])t[*z].mxr=dep1[x],t[*z].mxl=-inF,z=&amp;t[*z].r;</span><br><span class="line">			else t[*z].mxl=calc(bel[st[i]],x),t[*z].mxr=-inF,z=&amp;t[*z].l;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">void solve(int x)&#123;</span><br><span class="line">	e[de[x]].v=e[de[x]^1].v=0;</span><br><span class="line">	int y=dad[x];</span><br><span class="line">	sz[y]=sum-sz[x];</span><br><span class="line">	if(depe[x]&lt;depe[y])swap(x,y);</span><br><span class="line">	st[++w]=x;st2[w]=1;</span><br><span class="line">	if(sz[x]&gt;1)&#123;</span><br><span class="line">		sum=sz[x];rt=0;getce(x,0);</span><br><span class="line">		solve(rt);</span><br><span class="line">	&#125;else if(x&lt;=n)gett(x);</span><br><span class="line">	st2[w]=0;</span><br><span class="line">	if(sz[y]&gt;1)&#123;</span><br><span class="line">		sum=sz[y];rt=0;getce(y,0);</span><br><span class="line">		solve(rt);</span><br><span class="line">	&#125;else if(y&lt;=n)gett(y);</span><br><span class="line">	--w;</span><br><span class="line">&#125;</span><br><span class="line">ll ans,D;</span><br><span class="line">int merge(int x,int y)&#123;</span><br><span class="line">	if(!x || !y)return x|y;</span><br><span class="line">	t[x].l=merge(t[x].l,t[y].l);</span><br><span class="line">	t[x].r=merge(t[x].r,t[y].r);</span><br><span class="line">	upa(ans,max(t[x].mxl+t[y].mxr,t[y].mxl+t[x].mxr)-D);</span><br><span class="line">	upa(t[x].mxl,t[y].mxl);</span><br><span class="line">	upa(t[x].mxr,t[y].mxr);</span><br><span class="line">	return x;</span><br><span class="line">&#125;</span><br><span class="line">void dfs(int x,int fa)&#123;</span><br><span class="line">	upa(ans,dep1[x]-dep2[x]);</span><br><span class="line">	for(int i=h2[x];i;i=e[i].next)if(e[i].to!=fa)&#123;</span><br><span class="line">		dep2[e[i].to]=dep2[x]+e[i].v;</span><br><span class="line">		dfs(e[i].to,x);D=dep2[x];</span><br><span class="line">		root[x]=merge(root[x],root[e[i].to]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">void getdep2(int x,int fa)&#123;</span><br><span class="line">	for(int i=h3[x];i;i=e[i].next)if(e[i].to!=fa)&#123;</span><br><span class="line">		depe[e[i].to]=depe[x]+1;getdep2(e[i].to,x);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">	fread(ibuf,1,1&lt;&lt;25,stdin);</span><br><span class="line">	read(n);</span><br><span class="line">	for(i=1;i&lt;n;++i)&#123;</span><br><span class="line">		read(x),read(y),read(v);</span><br><span class="line">		addedge(x,y,v,h1);</span><br><span class="line">	&#125;</span><br><span class="line">	for(i=1;i&lt;n;++i)&#123;</span><br><span class="line">		read(x),read(y),read(v);</span><br><span class="line">		addedge(x,y,v,h2);</span><br><span class="line">	&#125;for(i=1;i&lt;=n;++i)bel[i]=i;</span><br><span class="line">	cnt=n;</span><br><span class="line">	getdep(1,0);</span><br><span class="line">	getdep2(1,0);</span><br><span class="line">	for(i=2;i&lt;xb;++i)lo[i+1]=lo[i]+!(i&amp;(i-1));</span><br><span class="line">	for(i=1;i&lt;=lo[xb];++i)</span><br><span class="line">		for(j=1;j&lt;=xb-(1&lt;&lt;i)+1;++j)</span><br><span class="line">			f[i][j]=cmp(f[i-1][j],f[i-1][j+(1&lt;&lt;(i-1))]);</span><br><span class="line">	g[0]=1&lt;&lt;30;</span><br><span class="line">	rt=0;sum=cnt;getce(1,0);</span><br><span class="line">	cnt=0;</span><br><span class="line">	solve(rt);</span><br><span class="line">	ans=-inF;</span><br><span class="line">	dfs(1,0);</span><br><span class="line">	printf(&quot;%lld\n&quot;,ans);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/题解/" rel="tag"># 题解</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/04/集训报告/" rel="next" title="绍兴一中集训报告">
+                <i class="fa fa-chevron-left"></i> 绍兴一中集训报告
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1528115353421&di=fc37fe52f68a7467805419602262e4b3&imgtype=0&src=http%3A%2F%2Fuploads.5068.com%2Fallimg%2F1801%2F102Q435O-8.jpg"
+                alt="Akoasm" />
+            
+              <p class="site-author-name" itemprop="name">Akoasm</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#暴力写挂"><span class="nav-number">1.</span> <span class="nav-text">暴力写挂</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题意：给定两棵带边权的树-T-和-T’-求点对-x-y-使得：-dep-x-dep-y-dep-lca-x-y-dep’-lca’-x-y"><span class="nav-number">2.</span> <span class="nav-text"> 题意：给定两棵带边权的树$T 和 T’$,求点对$(x,y)$使得：$dep(x) + dep(y) - dep(lca(x,y)) - dep’(lca’(x,y)) $</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据范围：-n-lt-366666-4s"><span class="nav-number">3.</span> <span class="nav-text"> 数据范围： $ n &lt;= 366666 , 4s$</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前置技能：点分治，边分治，虚树，点分树（动态点分治），线段树，边分树。"><span class="nav-number">4.</span> <span class="nav-text"> 前置技能：点分治，边分治，虚树，点分树（动态点分治），线段树，边分树。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流程："><span class="nav-number">5.</span> <span class="nav-text"> 流程：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Akoasm</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
+<script type="text/javascript" src="/js/src/love.js"></script>
