@@ -90,7 +90,7 @@
 <meta property="og:site_name" content="Akoasm 的博客">
 <meta property="og:description" content="CTSC 2018 D1T3 难度:NOI+/CTSC">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-09T12:03:19.114Z">
+<meta property="og:updated_time" content="2018-06-09T12:19:41.868Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CTSC2018P3">
 <meta name="twitter:description" content="CTSC 2018 D1T3 难度:NOI+/CTSC">
@@ -372,7 +372,7 @@
         <p>对于答案式子$f(n)=(n−1)f(n−1)+\sum_{i=2}^{n-2}(i−1)f(i)f(n−i)$，后面的部分不是很好处理，下面对这个式子的求解详细分析：</p>
 <p>1.首先由于分治NTT的顺序类似二叉树的中序遍历，所以当我们算到底层的$f(n)时，f(1),f(2),…,f(n−1)$都应该算完了，所以前面的$(n−1)f(n−1)$在底层加上去就好了。</p>
 <p>2.后面的部分由于做卷积的都是“自身”，所以似乎不那么好处理。</p>
-<p>为了求解后面的式子，不妨采用一种“试探+调整”的思路。按照分治NTT的套路，应该把[l,mid]这一段与自身（可能其中一个要乘上一个系数）做卷积，$再讨论对[mid+1,r]区间的贡献。这样就能得到对f([max(2l,mid+1),r])的一些贡献，注意这里mid+1和2l大小关系未知。$</p>
+<p>为了求解后面的式子，不妨采用一种“试探+调整”的思路。按照分治NTT的套路，应该把[l,mid]这一段与自身（可能其中一个要乘上一个系数）做卷积，$再讨论对[mid+1,r]区间的贡献。这样就能得到对f([max(2l,mid+1),r])的一些$<br>$贡献，注意这里mid+1和2l大小关系未知。$</p>
 <p>由于这样的分治要求在讨论$[mid+1,r]$之前要把之前区间所有的贡献都加上去，那么我们考虑还有哪些答案没有被加上去。</p>
 <p>“之前的区间”是指哪些区间呢？显然是整个$[2,mid]$区间。由分治的顺序可知我们之前已经把$[2,l−1]$里$f$的卷积贡献加到了$[mid+1,r]$上，也把$[l,mid]$里$f$的卷积的贡献加到了$[mid+1,r]上，那么当然只剩下了[2,l−1]和[l,mid]$里各取一个f的贡献没有被计算到了。注意到这里必然有一个配对的形式：$f(a)和f(b)$的总贡献是$(a−1)f(a)f(b)和(b−1)f(b)f(a)，$两项加起来是$(a+b−2)f(a)f(b)$。所以我们只需要把两段区间的f先做卷积，在算贡献的时候把前面的系数乘上去即可。</p>
 <p>这里做的正确性十分显然：首先显然不会算漏，同时也不会算重：讨$论[2,l−1]时，[l,mid+1]一定没有算$出来，不会加到答案里面。</p>
@@ -425,6 +425,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/09/APIO2018-新家/" rel="prev" title="APIO2018-新家">
+                APIO2018-新家 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -496,7 +500,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -756,6 +760,26 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
