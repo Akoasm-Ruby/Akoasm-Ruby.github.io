@@ -90,7 +90,7 @@
 <meta property="og:site_name" content="Akoasm 的博客">
 <meta property="og:description" content="处世">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-11T03:25:52.773Z">
+<meta property="og:updated_time" content="2018-06-11T04:02:29.353Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="多项式">
 <meta name="twitter:description" content="处世">
@@ -369,7 +369,39 @@
       
 
       
-        
+        <h1 id="多项式"><a href="#多项式" class="headerlink" title="多项式"></a>多项式</h1><h2 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h2><p>设$f(x)$为一个多项式，那么：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$f(x) =  \sum_{i = 0}^{n}a_ix^{i} $</p>
+<h2 id="表现形式："><a href="#表现形式：" class="headerlink" title="表现形式："></a>表现形式：</h2><p>第一种是$f(x) = a(0) + a(1)x + a(2)x^{2} + … +a(n)x^{n} $</p>
+<p>第二种是$f(x) = b(0) + b(1)C_{x}^{1} + … + b(n)C_{x}^{n} $</p>
+<p>第三种是$ (x_0,f(x_0)) … (x_n,f(x_n)) $</p>
+<p>其中第一种是多项式表示，第二种是二项式表示，第三种是点值表示。</p>
+<h2 id="多项式加法："><a href="#多项式加法：" class="headerlink" title="多项式加法："></a>多项式加法：</h2><p>像初中学过的那样次数相同项相加，系数求和，得到最终答案。<br>例：<br>设：$A(x) = \sum_{i=0}^{n}a_ix^i$</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$B(x) = \sum_{i=0}^{n}B_ix^i$<br>则:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$C(x) = \sum_{i=0}^{n}C_ix^i$</p>
+<h2 id="多项式乘法："><a href="#多项式乘法：" class="headerlink" title="多项式乘法："></a>多项式乘法：</h2><p>对于每一项分别乘上另一个多项式的每一项，未知数次幂相加，系数相乘，得到新多项式。</p>
+<p>如何表示?</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$C(x) = \sum_{i=0}^{2n}c_ix^i$</p>
+<p>每一项系数为：$\sum_{k = 0}^{j}a_kb_{j-k}$</p>
+<p>基础概念到此结束</p>
+<hr>
+<h2 id="我是拉格朗日插值："><a href="#我是拉格朗日插值：" class="headerlink" title="我是拉格朗日插值："></a>我是拉格朗日插值：</h2><p>定义：对于一个多项式，已知给定的$ k + 1 $个点的取值点$ (x_0,y_0),(x_1,y_1)…(x_k,y_k) $</p>
+<p>设任意两个$ x_j $都不相同，应用拉格朗日插值公式可以得到的多项式是：</p>
+<p>$ L(x) = \sum_{j=0}^{k} y_i\ell_i $</p>
+<p>其中，每个$ \ell{j}(x) $为拉格朗日基本多项式，表达式为：</p>
+<p>$ \ell_j(x) = \prod_{i = 0,i \neq j }^{k} \frac{x - x_i}{x_j - x_i} $</p>
+<p>拉格朗日基本多项式$ \ell{j}(x) $的特点是在$ x_{j} $上取值为1，其它点$ x_{i},i\neq j $上取值为0.</p>
+<hr>
+<h2 id="定理介绍："><a href="#定理介绍：" class="headerlink" title="定理介绍："></a>定理介绍：</h2><ol>
+<li>对于给定的$n$个点值，能确定唯一的一个多项式，最高次数为$n-1$</li>
+<li>对于系数表达的多项式，我们可以快速处理。</li>
+</ol>
+<hr>
+<h2 id="数学知识"><a href="#数学知识" class="headerlink" title="数学知识"></a>数学知识</h2><p>单位复数根：<br>$n次单位复数根$是满足$w^n = 1$的复数$w$。<br>$n次单位复数根恰好有n个，对于0&lt;=k&lt;=n-1，这些根是e^{2πik/n}$<br>所以可得定义：$e^{iu} = cos(u) + isin(u)$<br>这些单位复数根均匀分布在复平面的圆周上。<br>（表示不会画平面）<br>$w_n = e^{2πi/n}$被叫做主单位复数根，所有其他$n$次单位复数根都是$w_n$的幂。</p>
+<p>因为$w_{n}^{n} = w_n^0 = 1$，那么可得:$w_n^jw_n^k = w_n^{(j+k)\%n}$</p>
+<hr>
+<p>继续定理介绍：</p>
+<ol>
+<li>消去引理:对于任何整数$n,k,d$ $(n,k&gt;=0 , d &gt; 0)$，$w_{dn}^{dk} = w_n^k$</li>
+</ol>
+
       
     </div>
     
@@ -471,8 +503,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -543,6 +584,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#多项式"><span class="nav-number">1.</span> <span class="nav-text">多项式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义："><span class="nav-number">1.1.</span> <span class="nav-text">定义：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表现形式："><span class="nav-number">1.2.</span> <span class="nav-text">表现形式：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多项式加法："><span class="nav-number">1.3.</span> <span class="nav-text">多项式加法：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多项式乘法："><span class="nav-number">1.4.</span> <span class="nav-text">多项式乘法：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我是拉格朗日插值："><span class="nav-number">1.5.</span> <span class="nav-text">我是拉格朗日插值：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定理介绍："><span class="nav-number">1.6.</span> <span class="nav-text">定理介绍：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数学知识"><span class="nav-number">1.7.</span> <span class="nav-text">数学知识</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
