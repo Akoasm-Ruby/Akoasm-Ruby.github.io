@@ -364,69 +364,14 @@
 
       
         
-          
-            <h1 id="T1-不能分治"><a href="#T1-不能分治" class="headerlink" title="T1 不能分治"></a>T1 不能分治</h1><p>时限:6s 空间:3MB</p>
-<p>考虑到我们无法把数组存到内存中，所以直接找一种方法反复迭代它。</p>
-<p>语句中明确提到向前迭代，如何向后就成为了处理的问题。</p>
-<p>向后迭代只需要一些简单的恢复操作：</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$a_i = (a_{i+1} - B) * A^{-1} \% C$</p>
-<p>明确一个式子:</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$a_{max_{l,r}} = max(a_l,a_{l+1} … a_r)$。</p>
-<p>我们定义一个函数$f(l,r)$表示从$l$到$r$之间连续子序列的答案。</p>
-<p>所以，考虑分治：</p>
-<p>定义$g(l,r)$它是$l到r$之间每个区间$(a,b)$最大值之和,$l &lt;= a,b &lt;= r$。</p>
-<p>计算$f(l,r)$就可以:</p>
-<p>&nbsp;$f(l,r) = f(l,mid) + f(mid+1,r) + g(l,r) $</p>
-<p>思路：</p>
-<p>对于分离： 把序列不断分成两半。</p>
-<p>对于治之：假设最大值位于序列的右半部，另一种情况被类似地对待。假设我们将右边的元</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;素$r$固定为我们所计算的子序列的上限。</p>
-<p>我们将上面提到的$(a,b)$限制为：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$r &lt;= b$&nbsp;&nbsp;&nbsp;&nbsp; $ amax_{a,b} &lt;= a_r$ &nbsp;&nbsp;&nbsp;&nbsp;$amax_{mid+1,r-1} &lt; a_r$ &nbsp;&nbsp;&nbsp;&nbsp;$amax_{r,b} &lt;= a_r$</p>
-<p>就完成了在线性时间内完成此题。</p>
-<p>时间复杂度:$O(nlogn)$</p>
-<h1 id="T2-不能走路"><a href="#T2-不能走路" class="headerlink" title="T2 不能走路"></a>T2 不能走路</h1><p>时限：1s  空间：512MB</p>
-<p>正解：</p>
-<p>随机选一个点为根。</p>
-<p>容易得到一个结论：我们对于所有询问[X,Y]，我们破坏的一定是这些东西的LCA。</p>
-<p>可以这么证明：</p>
-<p>假设我们有一个解决方案，我们销毁一个点，使得这个点不代表任何节点对的LCA。我们用</p>
-<p>S来表示经过的点路径。容易知道所有的路径S也必须通过X的父亲。</p>
-<p>所以不是选择摧毁X我们可以摧毁X父亲。我们将相同类型的推理应用于X父亲等。</p>
-<p>把LCA按照深度排序，深度最深的LCA先破坏，因为这是必要的，之后破坏不可能再满足这条</p>
-<p>链的情况。破坏一个点之后删去和它影响的点</p>
-<p>这样的复杂度是较大的。</p>
-<p>考虑每次遍历子树（显然如果有关，至少有一个点在它的子树内）每个点如果被遍历两次是</p>
-<p>没有意义的，我们用一个vis来保存一个点是否遍历过，如果已经遍历过就不用再遍历。</p>
-<p>搞定！</p>
-<h1 id="T3-最长上升子序列"><a href="#T3-最长上升子序列" class="headerlink" title="T3 最长上升子序列"></a>T3 最长上升子序列</h1><p>时限:3s  空间:512MB</p>
-<p>先离散化一波。</p>
-<p>首先10分做法可以直接暴力DP</p>
-<p>记$f[i]$表示前i个数的LIS，那么寻找之前所有满足$a[i] &gt; a[j]$</p>
-<p>的j，另$f[i]=max(f[j]+1,1)$。</p>
-<p>对于20分，注意到这是一个经典问题，为了之后的几档分数，我们这里选择可以用树状数</p>
-<p>组来进行优化。即求前缀中比它小的数的和。</p>
-<p>每次处理一个数，就插入一个数。</p>
-<p>这样，每次我们暴力修改，暴力求LIS能有50分</p>
-<p>考虑如果我修改了一个数字，那么这时候答案是两部分的最大值：</p>
-<p>1、经过这个点的LIS。</p>
-<p>2、不经过这个点的LIS。</p>
-<p>我们先考虑做1。</p>
-<p>对于经过每个点的，就是前缀比他小的和后缀比它大的加起来，再加上它。</p>
-<p>我们再分成三部分。</p>
-<p>对于前缀比它小的，我们从左往右扫描，同时统计相应的答案（用树状数组维护）后缀同</p>
-<p>理，再加一。当然也可以强行主席树做。</p>
-<p>考虑2，不经过这点的LIS。</p>
-<p>显然答案要么是原来的len，要么是$len-1$</p>
-<p>这样我们只需要判断是否每一个LIS都必须经过它。</p>
-<p>首先需要判断这个点是否能成为LIS的一部分。</p>
-<p>设这个点的位置是i，要满足这个条件必须满足以i结束的最长上升子序列的长度加上以i</p>
-<p>开始的最长上升子序列的长度是原来的LIS-1。</p>
-<p>同时，你要保证它是唯一的。</p>
-<p>比如对于1 2 2 3，中间的两个2就不是唯一的<br>。<br>怎么判断是否是唯一的？就是只有它能够转移到最后面，也就是如果存在$（i,j）$满足都</p>
-<p>可能成为LIS的一部分的，如果以i结束的LIS的长度和以j结束的LIS长度相同，那么i和j就</p>
-<p>可以互相替换。</p>
-
-          
+          处世
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/06/13/20180613Test/">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
