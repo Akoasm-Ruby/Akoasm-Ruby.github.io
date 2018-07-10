@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-06-13T05:30:57.271Z</updated>
+  <updated>2018-07-10T00:48:28.307Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>bzoj illstrious</title>
+    <link href="http://yoursite.com/2018/07/10/bzoj-illstrious/"/>
+    <id>http://yoursite.com/2018/07/10/bzoj-illstrious/</id>
+    <published>2018-07-10T00:37:22.000Z</published>
+    <updated>2018-07-10T00:48:28.307Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="illustrious"><a href="#illustrious" class="headerlink" title="illustrious"></a>illustrious</h2><ul><li>题目大意：</li></ul><p>给定两个已知函数求第三个函数的值。</p><ul><li>题目连接:</li></ul><p><a href="https://www.lydsy.com/JudgeOnline/upload/201806/3(2).pdf" target="_blank" rel="noopener">https://www.lydsy.com/JudgeOnline/upload/201806/3(2).pdf</a></p><ul><li>思路</li></ul><p>考虑各个式子的意义。</p><p>$f(x)$表示x再$f(x)$中出现了几次。</p><p>$g(x)$是$f(x)$的前缀和。</p><p>明确目标函数：</p><p>$h(n) = h(g(f(n)) - f(f(n))) + g(g(n))$</p><p>首先考虑最后一项，$g(g(n))$因为是前缀和的前缀和，所以式子可以简化为:$g(g(n)) = \sum_{i = 1}^{n}i*f(i)$</p><p>这个显然可以很轻松的处理出来。</p><p>再来观察$h$中的那一大坨</p><p>很显然，$g((f(n)) - f(f(n)))$可以化为：<br>$g(f(n) - 1)$这个东西也可以很轻松的处理出来。</p><p>现在来看一个最基本的函数$f$如果超过$1e6$该怎么算呢？</p><p>答案很显然的，我们用二分，二分算出上一个数的后继，带回到$f$中就可计算大数项了。</p><p>时间复杂度理想的$O(n)$</p><ul><li>code</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">#define int long long</span><br><span class="line">const int maxn = 1e6+10;</span><br><span class="line">int f[maxn];</span><br><span class="line">int g[maxn];</span><br><span class="line">int h[maxn];</span><br><span class="line">int gsum[maxn];</span><br><span class="line">inline int read() &#123;</span><br><span class="line">    int q=0;char ch=&apos; &apos;;</span><br><span class="line">    while(ch&lt;&apos;0&apos;||ch&gt;&apos;9&apos;) ch=getchar();</span><br><span class="line">    while(ch&gt;=&apos;0&apos;&amp;&amp;ch&lt;=&apos;9&apos;) q=q*10+ch-&apos;0&apos;,ch=getchar();</span><br><span class="line">    return q;</span><br><span class="line">&#125;</span><br><span class="line">const int mod = 998244353ull;</span><br><span class="line">inline int get_f(int x)&#123;</span><br><span class="line">    return lower_bound(g + 1,g + maxn - 9,x) - g;</span><br><span class="line">&#125;</span><br><span class="line">int gg[maxn];</span><br><span class="line">inline int get_g(int x)&#123;</span><br><span class="line">    int pos = lower_bound(g+1,g+maxn-9,x) - g - 1;</span><br><span class="line">    return (gsum[pos]+(pos+1)*(g[pos]+1+x)*(x - g[pos])/2)%mod;</span><br><span class="line">&#125;</span><br><span class="line">#define rep(x) for(int i = x;i &lt;= maxn - 10; ++i)</span><br><span class="line">inline void pre()&#123;</span><br><span class="line">    f[1] = 1;</span><br><span class="line">    rep(2)&#123;</span><br><span class="line">        f[i] = f[i - f[f[i - 1]]] + 1;</span><br><span class="line">    &#125;</span><br><span class="line">    rep(1)&#123;</span><br><span class="line">        g[i] = g[i - 1] + f[i];</span><br><span class="line">    &#125;</span><br><span class="line">    rep(1)&#123;</span><br><span class="line">        gsum[i] = (gsum[i-1]+i*(2*g[i - 1]+f[i] + 1)*f[i]/2)%mod;</span><br><span class="line">    &#125;</span><br><span class="line">    for(int i = 1;i &lt;= 1000; ++i)&#123;</span><br><span class="line">        gg[i] = g[g[i]];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">inline int calc(int x)&#123;</span><br><span class="line">    int res = 0;</span><br><span class="line">    while(x)&#123;</span><br><span class="line">        res = 1ll*(res + get_g(x))%mod;</span><br><span class="line">        int nxt = g[get_f(x) - 1];</span><br><span class="line">        x = nxt;</span><br><span class="line">    &#125;</span><br><span class="line">    return res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">signed main()&#123;</span><br><span class="line">    pre();</span><br><span class="line">    int T = read();</span><br><span class="line">    while(T--)&#123;</span><br><span class="line">        int n = read();</span><br><span class="line">        printf(&quot;%lld\n&quot;,calc(n));</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      湖南省队集训 难度:提高
+    
+    </summary>
+    
+      <category term="博客" scheme="http://yoursite.com/categories/%E5%8D%9A%E5%AE%A2/"/>
+    
+    
+      <category term="题解" scheme="http://yoursite.com/tags/%E9%A2%98%E8%A7%A3/"/>
+    
+      <category term="数学" scheme="http://yoursite.com/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>20180613Test</title>
@@ -110,6 +134,8 @@
     
       <category term="题解" scheme="http://yoursite.com/tags/%E9%A2%98%E8%A7%A3/"/>
     
+      <category term="线段树" scheme="http://yoursite.com/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
+    
       <category term="树DP" scheme="http://yoursite.com/tags/%E6%A0%91DP/"/>
     
       <category term="多项式" scheme="http://yoursite.com/tags/%E5%A4%9A%E9%A1%B9%E5%BC%8F/"/>
@@ -119,8 +145,6 @@
       <category term="拉格朗日插值" scheme="http://yoursite.com/tags/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E6%8F%92%E5%80%BC/"/>
     
       <category term="高斯消元" scheme="http://yoursite.com/tags/%E9%AB%98%E6%96%AF%E6%B6%88%E5%85%83/"/>
-    
-      <category term="线段树" scheme="http://yoursite.com/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
     
   </entry>
   

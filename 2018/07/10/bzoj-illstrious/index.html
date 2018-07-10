@@ -69,7 +69,7 @@
 
 
 
-  <meta name="keywords" content="多项式,FFT,知识点," />
+  <meta name="keywords" content="题解,数学," />
 
 
 
@@ -82,18 +82,18 @@
 
 
 
-<meta name="description" content="处世">
-<meta name="keywords" content="多项式,FFT,知识点">
+<meta name="description" content="湖南省队集训 难度:提高">
+<meta name="keywords" content="题解,数学">
 <meta property="og:type" content="article">
-<meta property="og:title" content="多项式">
-<meta property="og:url" content="http://yoursite.com/2018/06/11/多项式/index.html">
+<meta property="og:title" content="bzoj illstrious">
+<meta property="og:url" content="http://yoursite.com/2018/07/10/bzoj-illstrious/index.html">
 <meta property="og:site_name" content="Akoasm 的博客">
-<meta property="og:description" content="处世">
+<meta property="og:description" content="湖南省队集训 难度:提高">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-11T04:50:45.644Z">
+<meta property="og:updated_time" content="2018-07-10T00:48:28.307Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="多项式">
-<meta name="twitter:description" content="处世">
+<meta name="twitter:title" content="bzoj illstrious">
+<meta name="twitter:description" content="湖南省队集训 难度:提高">
 
 <script>
     (function(){
@@ -133,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/11/多项式/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/07/10/bzoj-illstrious/"/>
 
 
 
 
 
-  <title>多项式 | Akoasm 的博客</title>
+  <title>bzoj illstrious | Akoasm 的博客</title>
   
 
 
@@ -276,7 +276,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/多项式/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/10/bzoj-illstrious/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Akoasm">
@@ -293,7 +293,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">多项式</h1>
+          <h1 class="post-title" itemprop="name headline">bzoj illstrious</h1>
         
 
         <div class="post-meta">
@@ -305,8 +305,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-11T11:24:10+08:00">
-                2018-06-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-10T08:37:22+08:00">
+                2018-07-10
               </time>
             
 
@@ -352,7 +352,7 @@
 
           
               <div class="post-description">
-                  处世
+                  湖南省队集训 难度:提高
               </div>
           
 
@@ -369,45 +369,34 @@
       
 
       
-        <h1 id="多项式"><a href="#多项式" class="headerlink" title="多项式"></a>多项式</h1><h2 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h2><p>设$f(x)$为一个多项式，那么：<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$f(x) =  \sum_{i = 0}^{n}a_ix^{i} $</p>
-<h2 id="表现形式："><a href="#表现形式：" class="headerlink" title="表现形式："></a>表现形式：</h2><p>第一种是$f(x) = a(0) + a(1)x + a(2)x^{2} + … +a(n)x^{n} $</p>
-<p>第二种是$f(x) = b(0) + b(1)C_{x}^{1} + … + b(n)C_{x}^{n} $</p>
-<p>第三种是$ (x_0,f(x_0)) … (x_n,f(x_n)) $</p>
-<p>其中第一种是多项式表示，第二种是二项式表示，第三种是点值表示。</p>
-<h2 id="多项式加法："><a href="#多项式加法：" class="headerlink" title="多项式加法："></a>多项式加法：</h2><p>像初中学过的那样次数相同项相加，系数求和，得到最终答案。<br>例：<br>设：$A(x) = \sum_{i=0}^{n}a_ix^i$</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$B(x) = \sum_{i=0}^{n}B_ix^i$<br>则:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$C(x) = \sum_{i=0}^{n}C_ix^i$</p>
-<h2 id="多项式乘法："><a href="#多项式乘法：" class="headerlink" title="多项式乘法："></a>多项式乘法：</h2><p>对于每一项分别乘上另一个多项式的每一项，未知数次幂相加，系数相乘，得到新多项式。</p>
-<p>如何表示?</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$C(x) = \sum_{i=0}^{2n}c_ix^i$</p>
-<p>每一项系数为：$\sum_{k = 0}^{j}a_kb_{j-k}$</p>
-<p>基础概念到此结束</p>
-<hr>
-<h2 id="我是拉格朗日插值："><a href="#我是拉格朗日插值：" class="headerlink" title="我是拉格朗日插值："></a>我是拉格朗日插值：</h2><p>定义：对于一个多项式，已知给定的$ k + 1 $个点的取值点$ (x_0,y_0),(x_1,y_1)…(x_k,y_k) $</p>
-<p>设任意两个$ x_j $都不相同，应用拉格朗日插值公式可以得到的多项式是：</p>
-<p>$ L(x) = \sum_{j=0}^{k} y_i\ell_i $</p>
-<p>其中，每个$ \ell{j}(x) $为拉格朗日基本多项式，表达式为：</p>
-<p>$ \ell_j(x) = \prod_{i = 0,i \neq j }^{k} \frac{x - x_i}{x_j - x_i} $</p>
-<p>拉格朗日基本多项式$ \ell{j}(x) $的特点是在$ x_{j} $上取值为1，其它点$ x_{i},i\neq j $上取值为0.</p>
-<hr>
-<h2 id="定理介绍："><a href="#定理介绍：" class="headerlink" title="定理介绍："></a>定理介绍：</h2><ol>
-<li>对于给定的$n$个点值，能确定唯一的一个多项式，最高次数为$n-1$</li>
-<li>对于系数表达的多项式，我们可以快速处理。</li>
-</ol>
-<hr>
-<h2 id="数学知识"><a href="#数学知识" class="headerlink" title="数学知识"></a>数学知识</h2><p>单位复数根：<br>$n次单位复数根$是满足$w^n = 1$的复数$w$。<br>$n次单位复数根恰好有n个，对于0&lt;=k&lt;=n-1，这些根是e^{2πik/n}$<br>所以可得定义：$e^{iu} = cos(u) + isin(u)$<br>这些单位复数根均匀分布在复平面的圆周上。<br>（表示不会画平面）<br>$w_n = e^{2πi/n}$被叫做主单位复数根，所有其他$n$次单位复数根都是$w_n$的幂。</p>
-<p>因为$w_{n}^{n} = w_n^0 = 1$，那么可得:$w_n^jw_n^k = w_n^{(j+k)\%n}$</p>
-<hr>
-<h2 id="继续定理介绍："><a href="#继续定理介绍：" class="headerlink" title="继续定理介绍："></a>继续定理介绍：</h2><ol>
-<li>消去引理:对于任何整数$n,k,d$ $(n,k&gt;=0 , d &gt; 0)$，$w_{dn}^{dk} = w_n^k$</li>
-<li>对于任意偶数$n(n&gt;0)$有$w_n^{n/2} = w_2 = -1$</li>
-<li>折半定理:如果$n(n&gt;0)$是偶数，那么$n$个$n$次单位复数根的平方集合就是$n/2$个$n/2$次单位复数根的集合。</li>
-<li>求和定理：对于任意整数$n(n&gt;=1)$和不能被$n$整除的非负整数$k$有$\sum_{i=0}^{n-1}(w_n^k)^j = 0$</li>
-</ol>
-<hr>
-<h2 id="重点1：DFT"><a href="#重点1：DFT" class="headerlink" title="重点1：DFT"></a>重点1：DFT</h2><p>根据以上知识，我们显然可以计算最高次数为$n$的多项式。<br>$=&gt;$ $f(x) = \sum_{i=0}^{n-1}a_ix^i$</p>
-<p>$=&gt;$ 对于每一个$x$的结果$y$可以得$y_j = f(w_n^j) = \sum_{j=0}^{n-1}a_jw_n^{ij}$</p>
-<hr>
-<h2 id="推荐例题：HDU1402"><a href="#推荐例题：HDU1402" class="headerlink" title="推荐例题：HDU1402"></a>推荐例题：HDU1402</h2>
+        <h2 id="illustrious"><a href="#illustrious" class="headerlink" title="illustrious"></a>illustrious</h2><ul>
+<li>题目大意：</li>
+</ul>
+<p>给定两个已知函数求第三个函数的值。</p>
+<ul>
+<li>题目连接:</li>
+</ul>
+<p><a href="https://www.lydsy.com/JudgeOnline/upload/201806/3(2).pdf" target="_blank" rel="noopener">https://www.lydsy.com/JudgeOnline/upload/201806/3(2).pdf</a></p>
+<ul>
+<li>思路</li>
+</ul>
+<p>考虑各个式子的意义。</p>
+<p>$f(x)$表示x再$f(x)$中出现了几次。</p>
+<p>$g(x)$是$f(x)$的前缀和。</p>
+<p>明确目标函数：</p>
+<p>$h(n) = h(g(f(n)) - f(f(n))) + g(g(n))$</p>
+<p>首先考虑最后一项，$g(g(n))$因为是前缀和的前缀和，所以式子可以简化为:$g(g(n)) = \sum_{i = 1}^{n}i*f(i)$</p>
+<p>这个显然可以很轻松的处理出来。</p>
+<p>再来观察$h$中的那一大坨</p>
+<p>很显然，$g((f(n)) - f(f(n)))$可以化为：<br>$g(f(n) - 1)$这个东西也可以很轻松的处理出来。</p>
+<p>现在来看一个最基本的函数$f$如果超过$1e6$该怎么算呢？</p>
+<p>答案很显然的，我们用二分，二分算出上一个数的后继，带回到$f$中就可计算大数项了。</p>
+<p>时间复杂度理想的$O(n)$</p>
+<ul>
+<li>code</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">#define int long long</span><br><span class="line">const int maxn = 1e6+10;</span><br><span class="line">int f[maxn];</span><br><span class="line">int g[maxn];</span><br><span class="line">int h[maxn];</span><br><span class="line">int gsum[maxn];</span><br><span class="line">inline int read() &#123;</span><br><span class="line">    int q=0;char ch=&apos; &apos;;</span><br><span class="line">    while(ch&lt;&apos;0&apos;||ch&gt;&apos;9&apos;) ch=getchar();</span><br><span class="line">    while(ch&gt;=&apos;0&apos;&amp;&amp;ch&lt;=&apos;9&apos;) q=q*10+ch-&apos;0&apos;,ch=getchar();</span><br><span class="line">    return q;</span><br><span class="line">&#125;</span><br><span class="line">const int mod = 998244353ull;</span><br><span class="line">inline int get_f(int x)&#123;</span><br><span class="line">    return lower_bound(g + 1,g + maxn - 9,x) - g;</span><br><span class="line">&#125;</span><br><span class="line">int gg[maxn];</span><br><span class="line">inline int get_g(int x)&#123;</span><br><span class="line">    int pos = lower_bound(g+1,g+maxn-9,x) - g - 1;</span><br><span class="line">    return (gsum[pos]+(pos+1)*(g[pos]+1+x)*(x - g[pos])/2)%mod;</span><br><span class="line">&#125;</span><br><span class="line">#define rep(x) for(int i = x;i &lt;= maxn - 10; ++i)</span><br><span class="line">inline void pre()&#123;</span><br><span class="line">    f[1] = 1;</span><br><span class="line">    rep(2)&#123;</span><br><span class="line">        f[i] = f[i - f[f[i - 1]]] + 1;</span><br><span class="line">    &#125;</span><br><span class="line">    rep(1)&#123;</span><br><span class="line">        g[i] = g[i - 1] + f[i];</span><br><span class="line">    &#125;</span><br><span class="line">    rep(1)&#123;</span><br><span class="line">        gsum[i] = (gsum[i-1]+i*(2*g[i - 1]+f[i] + 1)*f[i]/2)%mod;</span><br><span class="line">    &#125;</span><br><span class="line">    for(int i = 1;i &lt;= 1000; ++i)&#123;</span><br><span class="line">        gg[i] = g[g[i]];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">inline int calc(int x)&#123;</span><br><span class="line">    int res = 0;</span><br><span class="line">    while(x)&#123;</span><br><span class="line">        res = 1ll*(res + get_g(x))%mod;</span><br><span class="line">        int nxt = g[get_f(x) - 1];</span><br><span class="line">        x = nxt;</span><br><span class="line">    &#125;</span><br><span class="line">    return res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">signed main()&#123;</span><br><span class="line">    pre();</span><br><span class="line">    int T = read();</span><br><span class="line">    while(T--)&#123;</span><br><span class="line">        int n = read();</span><br><span class="line">        printf(&quot;%lld\n&quot;,calc(n));</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -432,11 +421,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/多项式/" rel="tag"><i class="fa fa-tag"></i> 多项式</a>
+            <a href="/tags/题解/" rel="tag"><i class="fa fa-tag"></i> 题解</a>
           
-            <a href="/tags/FFT/" rel="tag"><i class="fa fa-tag"></i> FFT</a>
-          
-            <a href="/tags/知识点/" rel="tag"><i class="fa fa-tag"></i> 知识点</a>
+            <a href="/tags/数学/" rel="tag"><i class="fa fa-tag"></i> 数学</a>
           
         </div>
       
@@ -449,8 +436,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/10/二分图/" rel="next" title="二分图以及网络流">
-                <i class="fa fa-chevron-left"></i> 二分图以及网络流
+              <a href="/2018/06/13/20180613Test/" rel="next" title="20180613Test">
+                <i class="fa fa-chevron-left"></i> 20180613Test
               </a>
             
           </div>
@@ -458,10 +445,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/13/20180613Test/" rel="prev" title="20180613Test">
-                20180613Test <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -604,7 +587,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#多项式"><span class="nav-number">1.</span> <span class="nav-text">多项式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义："><span class="nav-number">1.1.</span> <span class="nav-text">定义：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表现形式："><span class="nav-number">1.2.</span> <span class="nav-text">表现形式：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多项式加法："><span class="nav-number">1.3.</span> <span class="nav-text">多项式加法：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多项式乘法："><span class="nav-number">1.4.</span> <span class="nav-text">多项式乘法：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我是拉格朗日插值："><span class="nav-number">1.5.</span> <span class="nav-text">我是拉格朗日插值：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定理介绍："><span class="nav-number">1.6.</span> <span class="nav-text">定理介绍：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数学知识"><span class="nav-number">1.7.</span> <span class="nav-text">数学知识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继续定理介绍："><span class="nav-number">1.8.</span> <span class="nav-text">继续定理介绍：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重点1：DFT"><span class="nav-number">1.9.</span> <span class="nav-text">重点1：DFT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#推荐例题：HDU1402"><span class="nav-number">1.10.</span> <span class="nav-text">推荐例题：HDU1402</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#illustrious"><span class="nav-number">1.</span> <span class="nav-text">illustrious</span></a></li></ol></div>
             
 
           </div>
